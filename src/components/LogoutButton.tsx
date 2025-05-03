@@ -6,19 +6,22 @@ import { useState } from 'react'
 import { Loader2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { toast } from 'sonner';
+import { logOutAction } from '@/actions/users' // Adjust the import path as necessary
 
-const LogoutButton = () => {
+const LogOutButton = () => {
     // const {toast} = useToast();
     const [loading, setLoading] = useState(false);
     const router = useRouter();
 
+    
+
     const handleLogout = async () => {
         setLoading(true)
 
-        await new Promise((resolve) => setTimeout(resolve, 2000))
+        const {errorMessage} = await logOutAction() // Replace with actual logout action
         // Simulate a logout request
 
-        const errorMessage = null // Replace with actual error message if any
+         // Replace with actual error message if any
 
         if (!errorMessage) {
             toast.success('Logout successful', {
@@ -48,4 +51,4 @@ const LogoutButton = () => {
     )
 }
 
-export default LogoutButton
+export default LogOutButton

@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { shadow } from "@/styles/utils";
 import { Button } from './ui/button'
 import { DarkModeToggle } from './ui/DarkModeToggle'
-import LogoutButton from './LogoutButton';
+import LogoutButton from './LogOutButton';
 import { getUser } from '@/auth/server';
 
 const Header = async () => {
