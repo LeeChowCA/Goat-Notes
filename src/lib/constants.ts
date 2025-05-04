@@ -1,0 +1,1 @@
+export const debounceTimeout = 1000; // 300ms debounce timeout for input changes
