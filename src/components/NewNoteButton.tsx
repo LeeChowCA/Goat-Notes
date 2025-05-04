@@ -5,47 +5,52 @@ import { Button } from "./ui/button";
 import { Loader2 } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-// import { v4 as uuidv4 } from "uuid";
-// import { createNoteAction } from "@/actions/notes";
+import { v4 as uuidv4 } from "uuid";
+import { createNoteAction } from "@/actions/notes";
+import { toast } from "sonner";
 
 type Props = {
     user: User | null;
 };
 
 function NewNoteButton({ user }: Props) {
-    // const router = useRouter();
+    const router = useRouter();
 
-    // const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
 
-    // const handleClickNewNoteButton = async () => {
-    //     if (!user) {
-    //         router.push("/login");
-    //     } else {
-    //         setLoading(true);
+    const handleClickNewNoteButton = async () => {
+        if (!user) {
+            router.push("/login");
+        } else {
+            setLoading(true);
 
-    //         const uuid = uuidv4();
-    //         await createNoteAction(uuid);
-    //         router.push(`/?noteId=${uuid}&toastType=newNote`);
+            const uuid = uuidv4();
+            await createNoteAction(uuid);
+            router.push(`/?noteId=${uuid}&toastType=newNote`);
 
-    //         setLoading(false);
-    //     }
-    // };
+            toast.success("New note created!", {
+                description: "Your new note has been successfully created.",
+            });
 
-    // return (
-    //     <Button
-    //         onClick={handleClickNewNoteButton}
-    //         variant="secondary"
-    //         className="w-24"
-    //         disabled={loading}
-    //     >
-    //         {loading ? <Loader2 className="animate-spin" /> : "New Note"}
-    //     </Button>
-    // );
+            setLoading(false);
+        }
+    };
+
     return (
-        <Button variant="secondary" className="w-24">
-            New Note
+        <Button
+            onClick={handleClickNewNoteButton}
+            variant="secondary"
+            className="w-24"
+            disabled={loading}
+        >
+            {loading ? <Loader2 className="animate-spin" /> : "New Note"}
         </Button>
     );
+    // return (
+    //     <Button variant="secondary" className="w-24">
+    //         New Note
+    //     </Button>
+    // );
 }
 
 export default NewNoteButton;
