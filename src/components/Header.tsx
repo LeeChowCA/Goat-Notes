@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { shadow } from "@/styles/utils";
 import { Button } from './ui/button'
 import { DarkModeToggle } from './ui/DarkModeToggle'
-import LogOutButton from './LogOutButton';
+import LogOutButton from './LogoutButton';
 import { getUser } from '@/auth/server';
 import { SidebarTrigger } from './ui/sidebar';
 

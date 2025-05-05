@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation'
 import { toast } from 'sonner';
 import { logOutAction } from '@/actions/users' // Adjust the import path as necessary
 
-const LogOutButton = () => {
+const LogoutButton = () => {
     // const {toast} = useToast();
     const [loading, setLoading] = useState(false);
     const router = useRouter();
@@ -51,4 +51,4 @@ const LogOutButton = () => {
     )
 }
 
-export default LogOutButton
+export default LogoutButton
