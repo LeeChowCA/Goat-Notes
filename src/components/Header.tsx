@@ -30,7 +30,7 @@ const Header = async () => {
                 />
 
                 <h1 className="flex flex-col pb-1 text-2xl font-semibold leading-6">
-                Gorilla <span>Notes</span>
+                Gorilla <span>Note</span>
                 </h1>
             </Link>
 
