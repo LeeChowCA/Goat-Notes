@@ -1,38 +1,18 @@
-import { getUser } from "@/auth/server";
-// import AskAIButton from "@/components/AskAIButton";
-// import NewNoteButton from "@/components/NewNoteButton";
-// import NoteTextInput from "@/components/NoteTextInput";
-// import HomeToast from "@/components/HomeToast";
-import { prisma } from "@/db/prisma";
+import AuthForm from "@/components/AuthForm";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 
-type Props = {
-    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
-};
-
-async function HomePage({ searchParams }: Props) {
-    const noteIdParam = (await searchParams).noteId;
-    const user = await getUser();
-
-    const noteId = Array.isArray(noteIdParam)
-        ? noteIdParam![0]
-        : noteIdParam || "";
-
-    const note = await prisma.note.findUnique({
-        where: { id: noteId, authorId: user?.id },
-    });
-
+function SignUpPage() {
     return (
-        <div className="flex h-full flex-col items-center gap-4">
-            {/* <div className="flex w-full max-w-4xl justify-end gap-2">
-                <AskAIButton user={user} />
-                <NewNoteButton user={user} />
-            </div>
+        <div className="mt-20 flex flex-1 flex-col items-center">
+            <Card className="w-full max-w-md">
+                <CardHeader className="mb-4">
+                    <CardTitle className="text-center text-3xl">Sign Up</CardTitle>
+                </CardHeader>
 
-            <NoteTextInput noteId={noteId} startingNoteText={note?.text || ""} />
-
-            <HomeToast /> */}
+                <AuthForm type="signUp" />
+            </Card>
         </div>
     );
 }
 
-export default HomePage;
+export default SignUpPage;
