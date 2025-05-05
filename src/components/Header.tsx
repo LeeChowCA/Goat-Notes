@@ -9,7 +9,9 @@ import { getUser } from '@/auth/server';
 import { SidebarTrigger } from './ui/sidebar';
 
 const Header = async () => {
-    const user = await getUser(); // Replace with actual user authentication logic
+    console.log("in header")
+  const user = await getUser();
+  console.log("after get user in header component")
 
     return (
         <header

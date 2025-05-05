@@ -32,7 +32,9 @@ export async function getUser() {
   const userObject = await auth.getUser();
 
   if (userObject.error) {
-    console.error(userObject.error);
+    if (process.env.NODE_ENV === "development") {
+      console.error('Error fetching user:', userObject.error);
+    }
     return null;
   }
 
