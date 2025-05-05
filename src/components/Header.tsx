@@ -6,6 +6,7 @@ import { Button } from './ui/button'
 import { DarkModeToggle } from './ui/DarkModeToggle'
 import LogOutButton from './LogOutButton';
 import { getUser } from '@/auth/server';
+import { SidebarTrigger } from './ui/sidebar';
 
 const Header = async () => {
     const user = await getUser(); // Replace with actual user authentication logic
@@ -17,9 +18,10 @@ const Header = async () => {
                 boxShadow: shadow,
             }}
         >
+            <SidebarTrigger className='absolute left-1 top-1'/>
             <Link className="flex items-end gap-2" href="/">
                 <Image
-                    src="/goatius.png"
+                    src="/LanguageCosmos.png"
                     height={60}
                     width={60}
                     alt="logo"
@@ -28,7 +30,7 @@ const Header = async () => {
                 />
 
                 <h1 className="flex flex-col pb-1 text-2xl font-semibold leading-6">
-                    GOAT <span>Notes</span>
+                Gorilla <span>Notes</span>
                 </h1>
             </Link>
 

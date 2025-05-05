@@ -9,8 +9,8 @@ import NoteProvider from "@/providers/NoteProvider";
 
 
 export const metadata: Metadata = {
-  title: "Goat Notes",
-  description: "A note-taking application for goats",
+  title: "Gorilla Notes",
+  description: "A note-taking application for gorillas",
 };
 
 export default function RootLayout({
