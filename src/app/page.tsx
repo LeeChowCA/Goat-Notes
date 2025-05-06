@@ -4,6 +4,7 @@ import NewNoteButton from "@/components/NewNoteButton";
 import NoteTextInput from "@/components/NoteTextInput";
 // import HomeToast from "@/components/HomeToast";
 import { prisma } from "@/db/prisma";
+import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 
 type Props = {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
@@ -17,9 +18,16 @@ async function HomePage({ searchParams }: Props) {
     ? noteIdParam![0]
     : noteIdParam || "";
 
-  const note = await prisma.note.findUnique({
-    where: { id: noteId, authorId: user?.id },
-  });
+  let note = null;
+  try {
+    note = await prisma.note.findUnique({
+      where: { id: noteId, authorId: user?.id },
+    });
+  } catch (error) {
+    console.error("Error fetching note:", error);
+    // If the error is that the table doesn't exist, we'll return null note
+    // This allows the page to render and display appropriate UI
+  }
 
   return (
     <div className="flex h-full flex-col items-center gap-4">
