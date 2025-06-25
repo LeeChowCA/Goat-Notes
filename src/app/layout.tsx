@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import AppSidebar from "@/components/AppSidebar";
 import NoteProvider from "@/providers/NoteProvider";
+import { Analytics } from "@vercel/analytics/next"
 
 
 export const metadata: Metadata = {
@@ -42,6 +43,7 @@ export default function RootLayout({
             <Toaster />
           </NoteProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
