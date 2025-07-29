@@ -98,7 +98,7 @@ export const askAIAboutNotesAction = async (
           Rendered like this in JSX:
           <p dangerouslySetInnerHTML={{ __html: YOUR_RESPONSE }} />
     
-          Here are the user's notess:
+          Here are the user's notes:
           ${formattedNotes}
           `,
         },
