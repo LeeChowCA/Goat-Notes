@@ -68,8 +68,6 @@ function SidebarGroupContent({ notes }: Props) {
       </SidebarMenu>
     </SidebarGroupContentShadCN>
   );
-
-  return <div>your notes here</div>
 }
 
 export default SidebarGroupContent;
