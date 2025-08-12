@@ -51,6 +51,7 @@ function SidebarGroupContent({ notes }: Props) {
           placeholder="Search your notes..."
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
+          
         />
       </div>
 
